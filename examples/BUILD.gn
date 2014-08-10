@@ -1,0 +1,19 @@
+executable("breakpad-example") {
+  configs -= [
+    "//build/config/compiler:chromium_code",
+    "//build/config/compiler:no_symbols",
+  ]
+  configs += [
+    "//build/config/compiler:no_chromium_code",
+    "//build/config/compiler:symbols",
+  ]
+  deps = [
+    "//breakpad:client",
+  ]
+  include_dirs = [
+    "//breakpad/src",
+  ]
+  sources = [
+    "breakpad-example.cpp",
+  ]
+}

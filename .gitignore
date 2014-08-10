@@ -19,3 +19,12 @@
 *.exe
 *.out
 *.app
+
+.gn
+out
+breakpad
+build
+buildtools
+testing
+tools
+third_party

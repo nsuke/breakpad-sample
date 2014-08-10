@@ -1,0 +1,53 @@
+Index: config/compiler/BUILD.gn
+===================================================================
+--- config/compiler/BUILD.gn	(revision 285412)
++++ config/compiler/BUILD.gn	(working copy)
+@@ -206,8 +206,8 @@
+         # linker might not be gold, but isn't used much anyway.
+         # TODO(raymes): Disable threading because gold is frequently
+         # crashing on the bots: crbug.com/161942.
+-        #"-Wl,--threads",
+-        #"-Wl,--thread-count=4",
++        "-Wl,--threads",
++        "-Wl,--thread-count=4",
+       ]
+     }
+ 
+@@ -650,8 +650,6 @@
+       cflags_cc += [
+         # See comment for -Wno-c++11-narrowing.
+         "-Wno-narrowing",
+-        # TODO(thakis): Remove, http://crbug.com/263960
+-        "-Wno-literal-suffix",
+       ]
+     }
+ 
+@@ -681,15 +679,6 @@
+         "-Wno-sign-promo",
+       ]
+     }
+-
+-    if (gcc_version >= 48) {
+-      # Don't warn about the "typedef 'foo' locally defined but not used"
+-      # for gcc 4.8.
+-      # TODO: remove this flag once all builds work. See crbug.com/227506
+-      cflags += [
+-        "-Wno-unused-local-typedefs",
+-      ]
+-    }
+   }
+ }
+ 
+Index: config/linux/BUILD.gn
+===================================================================
+--- config/linux/BUILD.gn	(revision 285412)
++++ config/linux/BUILD.gn	(working copy)
+@@ -166,7 +166,7 @@
+     "g_settings_get_boolean",
+     "g_settings_get_int",
+     "g_settings_get_strv",
+-    "g_settings_list_schemas",
++    "g_settings_schema_source_list_schemas",
+   ]
+ }
+ 

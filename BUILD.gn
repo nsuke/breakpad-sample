@@ -1,0 +1,8 @@
+
+group("root") {
+  deps = [
+    "//examples:breakpad-example",
+    "//breakpad:dump_syms",
+    "//breakpad:minidump_stackwalk",
+  ]
+}
