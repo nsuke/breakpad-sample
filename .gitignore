@@ -20,7 +20,6 @@
 *.out
 *.app
 
-.gn
 out
 breakpad
 build
